@@ -275,14 +275,16 @@ Per facilitar la lectura del professorat/a o l'equip QA, a continuació es prese
 ## 9. Annexos
 
 9.1 Fitxers adjunts (auditoria)
-### Home
-#### Captura pàgina (axe-home.json)
+
+### Home ([axe-home.json](axe-home.json))
+
+#### Captura pàgina
 ![alt text](home.png)
 
-#### Comande execució Axe-Core (axe-home.json)
+#### Comande execució Axe-Core
 ![alt text](axe-core-home.png)
 
-#### Extracte de violacions crítiques (axe-home.json)
+#### Extracte de violacions crítiques
 
 ```json
 {
@@ -302,15 +304,17 @@ Per facilitar la lectura del professorat/a o l'equip QA, a continuació es prese
 }
 ```
 
-### Owners
+<br>
 
-#### Captura pàgina (axe-owners.json)
+### Owners ([axe-owners.json](axe-owners.json))
+
+#### Captura pàgina
 ![alt text](owners.png)
 
-#### Comande execució Axe-Core (axe-owners.json)
+#### Comande execució Axe-Core
 ![alt text](axe-core-owners.png)
 
-#### Extracte de violacions crítiques (axe-owners.json)
+#### Extracte de violacions crítiques
 
 ```json
 {
@@ -329,16 +333,15 @@ Per facilitar la lectura del professorat/a o l'equip QA, a continuació es prese
 }
 ```
 
-### Add owner
+<br>
 
+### Add owner ([axe-add-owner.json](axe-add-owner.json))
 ![alt text](add-owner.png)
 
 #### Comande execució Axe-Core
 ![alt text](axe-core-add-owner.png)
 
-
-
-#### Extracte de violacions crítiques (axe-add-owner.json)
+#### Extracte de violacions crítiques
 
 ```json
 {
@@ -357,7 +360,59 @@ Per facilitar la lectura del professorat/a o l'equip QA, a continuació es prese
 }
 ```
 
-9.2 Captures i proves manuals
+<br>
+
+9.2 Prompt utilitzat per a generar la síntes  les recomenacions
+Context:
+Ets un expert en accessibilitat web (WCAG 2.1 AA) i qualitat de software. Has realitzat una auditoria automàtica amb axe-core sobre tres pàgines representatives d'una aplicació Angular (Spring PetClinic). Les pàgines auditades són:
+
+Pàgina d'Inici (/)
+
+Llista de Propietaris (/owners)
+
+Formulari "Afegir Propietari" (/owners/add)
+
+Has obtingut tres fitxers JSON amb els resultats de axe-core per a cada pàgina. Ara, necessites una anàlisi detallada d'aquests resultats per elaborar un informe tècnic definitiu.
+
+Les teves tasques són les següents:
+
+Anàlisi i Consolidació: Analitza els fitxers JSON que proporcionaré a continuació. Agrupa tots els problemes detectats (violacions, incompliments) per tipus de problema en lloc de per pàgina. Per exemple: "Problemes de contrast de color", "Falta d'atributs alt en imatges", "Elements de formulari sense etiquetes associades", etc.
+
+Priorització i Impacte: Per a cada tipus de problema identificat, classifica'l segons la seva prioritat (Alta, Mitjana, Baixa) i el seu impacte en els usuaris amb diversitat funcional (per exemple: "Impacte alt per a usuaris amb discapacitat visual", "Impacte mitjà per a usuaris que utilitzen teclat").
+
+Correccions Tècniques: Per a cada problema, proporciona una recomanació de correcció clara i accionable. Aquesta ha d'incloure:
+
+El criteri WCAG 2.1 AA específic que no es compleix.
+
+Una descripció tècnica del perquè és un problema.
+
+Un fragment de codi d'exemple que il·lustri com es podria solucionar el problema en el context d'una aplicació Angular (utilitzant HTML semàntic, ARIA, etc.).
+
+Explica per què aquesta correcció millora l'accessibilitat.
+
+Pla de Millores Estructurat: Amb tota la informació anterior, genera un pla de millores que es pugui incorporar directament a l'informe final. Aquest pla s'ha d'estructurar en:
+
+Accions Immediates (Prioritat Alta): Correccions ràpides i crítiques que s'han de resoldre de forma urgent.
+
+Accions Estructurals (Prioritat Mitjana-Baixa): Millores que podrien requerir una mica més de planificació o canvis en components reutilitzables.
+
+Els elements d'aquest pla han de ser mesurables (per exemple: "Assegurar que tots els botons tenen un text accessible o un atribut aria-label", "Garantir un ratio de contrast mínim de 4.5:1 per a tot el text").
+
+Resumen Executiu: Finalment, redacta un resumen executiu d'unes 150 paraules que resumeixi els punts següents per a l'informe:
+
+Objectiu de l'auditoria.
+
+Metodologia utilitzada (eines, mostreig de pàgines).
+
+Visió general dels resultats (quantificació dels problemes trobats, àrees més crítiques).
+
+Recomanació principal.
+
+Dades per analitzar (documents .json adjuntats: ([axe-home.json](axe-home.json)), ([axe-owners.json](axe-owners.json)) i ([axe-add-owner.json](axe-add-owner.json)))
+
+<br>
+
+9.3 Proves manuals
 
 #### Proves manuals realitzades
 - Navegació amb teclat (Tab, Shift+Tab, Enter) per totes les pàgines
@@ -365,7 +420,7 @@ Per facilitar la lectura del professorat/a o l'equip QA, a continuació es prese
 - Comprovació de focus visible en tots els elements interactius
 - Test de bypass amb Skip link funcional
 
-9.3 Glossari WCAG (principals referències citades)
+9.4 Glossari WCAG (principals referències citades)
 - 1.3.1 Info and Relationships (A): la semàntica i relacions (capçaleres, landmarks, labels) han de ser preservades per facilitar la comprensió.
 - 2.4.1 Bypass Blocks (A): proveir mecanismes per saltar contingut repetitiu (skip links o landmarks).
 - 2.4.4 Link Purpose (in context) (AA): els enllaços han de tenir un propòsit discernible en context.
@@ -374,14 +429,3 @@ Per facilitar la lectura del professorat/a o l'equip QA, a continuació es prese
 - 1.4.3 Contrast (AA): contrast de text suficient per usuaris amb baixa visió.
 - 1.1.1 Non-text Content (A): imatges i elements no-text han de tenir alternatives textuals.
 - 4.1.2 Name, Role, Value (A): les tecnologies assistives han d'obtenir nom, rol i valor dels controls.
-
-9.4 Comandes d'exemple per executar axe localment (opcional)
-Pots executar una comprovació ràpida amb un script Node + puppeteer + axe-core; exemple mínim (opcional):
-
-```powershell
-# Instal·lar depenent (només si cal)
-npm install puppeteer axe-core
-
-# Script d'exemple (guardar com run-axe.js i executar amb node)
-# node run-axe.js http://localhost:4200/petclinic/owners
-```
